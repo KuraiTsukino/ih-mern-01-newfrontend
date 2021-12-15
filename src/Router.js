@@ -9,8 +9,10 @@ import Register from "./components/Auth/Register";
 import Login from "./components/Auth/Login";
 import Guitars from "./components/Guitars";
 import Single from "./components/Guitars/Single";
+import CreateGuitar from "./components/Guitars/Create"
 import Stores from "./components/Stores";
 import SingleStore from "./components/Stores/Single";
+import CreateStore from "./components/Stores/Create";
 
 import GuitarState from "./context/Guitar/GuitarState";
 import StoreState from "./context/Store/StoreState";
@@ -31,8 +33,10 @@ const Router = () => {
                 {/* localhost:3000/iniciar-sesion */}
                 <Route path="iniciar-sesion" element={<Login />} />
                 <Route path="guitarras" element={<Guitars />} />
+                <Route path="guitarras/crear" element={<CreateGuitar />} />
                 <Route path="guitarras/:id" element={<Single />} />
                 <Route path="stores" element={<Stores />} />
+                <Route path="stores/crear" element={<CreateStore />} />
                 <Route path="stores/:id" element={<SingleStore />} />
               </Route>
             </Routes>

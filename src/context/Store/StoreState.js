@@ -59,6 +59,11 @@ const StoreState = (props) => {
         })
     }
 
+    const createStore = async (form) => {
+        const res = await axiosClient.post("stores/create", form)
+        console.log(res);
+    }
+
     // 4. Retorno.
     return (
         // Se necesita un proovedor para que de el acceso a los componentes al estado inicial de guitarras.
@@ -69,7 +74,8 @@ const StoreState = (props) => {
                 singleStore: globalState.singleStore,
                 changeText,
                 getStores,
-                getStore
+                getStore,
+                createStore
             }}
         >
             {props.children}

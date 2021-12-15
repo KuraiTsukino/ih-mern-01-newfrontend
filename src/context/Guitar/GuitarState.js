@@ -62,6 +62,11 @@ const GuitarState = (props) => {
     })
   }
 
+  const createGuitar = async (form) => {
+    const res = await axiosClient.post("guitars/create", form)
+    console.log(res)
+  }
+
   // 4. Retorno.
   return (
     // Se necesita un proovedor para que de el acceso a los componentes al estado inicial de guitarras.
@@ -72,7 +77,8 @@ const GuitarState = (props) => {
         singleGuitar: globalState.singleGuitar,
         changeText,
         getGuitars,
-        getGuitar
+        getGuitar,
+        createGuitar
       }}
     >
       {props.children}{" "}
