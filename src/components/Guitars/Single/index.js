@@ -1,6 +1,5 @@
 import React, { useEffect, useContext } from "react";
 import GuitarContext from "./../../../context/Guitar/GuitarContext";
-
 import { useParams } from "react-router-dom";
 
 export default function Single() {
@@ -15,14 +14,13 @@ export default function Single() {
   }, []);
 
   return (
-    <div>
-	 <div className="bg-white">
+    <>
+      <div className="bg-white">
         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
           {/* Product details */}
           <div className="lg:max-w-lg lg:self-end">
             <nav aria-label="Breadcrumb">
-              <ol role="list" className="flex items-center space-x-2">
-              </ol>
+              <ol role="list" className="flex items-center space-x-2"></ol>
             </nav>
 
             <div className="mt-4">
@@ -33,7 +31,7 @@ export default function Single() {
 
             <section aria-labelledby="information-heading" className="mt-4">
               <h2 id="information-heading" className="sr-only">
-                Product information
+                Información de la guitarra
               </h2>
 
               <div className="flex items-center">
@@ -43,7 +41,9 @@ export default function Single() {
               </div>
 
               <div className="mt-4 space-y-6">
-                <p className="text-base text-gray-500">{singleGuitar.descripcion}</p>
+                <p className="text-base text-gray-500">
+                  {singleGuitar.descripcion}
+                </p>
               </div>
             </section>
           </div>
@@ -62,7 +62,6 @@ export default function Single() {
           {/* Product form */}
           <div className="mt-10 lg:max-w-lg lg:col-start-1 lg:row-start-2 lg:self-start">
             <section aria-labelledby="options-heading">
-
               <form>
                 <div className="mt-10">
                   <button
@@ -72,12 +71,11 @@ export default function Single() {
                     Add to bag
                   </button>
                 </div>
-
               </form>
             </section>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

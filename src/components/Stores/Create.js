@@ -13,6 +13,7 @@ export default function Create() {
 
     // 2. Estado local.
     const [newStore, setNewStore] =useState({
+        nombre: "",
         domicilio: "",
         telefono: ""
     })
@@ -40,11 +41,18 @@ export default function Create() {
             <div class="shadow sm:rounded-md sm:overflow-hidden">
 					<div class="bg-white py-6 px-4 space-y-6 sm:p-6">
 						<div>
-							<h3 class="text-lg leading-6 font-medium text-gray-900">Personal Information</h3>
-							<p class="mt-1 text-sm text-gray-500">Use a permanent address where you can recieve mail.</p>
+							<h3 class="text-lg leading-6 font-medium text-gray-900">Crea una nueva tienda.</h3>
 						</div>
 
 						<div class="grid grid-cols-6 gap-6">
+                            <div class="col-span-6 sm:col-span-3">
+								<label for="first-name" class="block text-sm font-medium text-gray-700">Nombre</label>
+								<input
+									onChange={ (event) => { handleChange(event) } } 
+									type="text" 
+									name="nombre"  
+									class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+							</div>
 							<div class="col-span-6 sm:col-span-3">
 								<label for="first-name" class="block text-sm font-medium text-gray-700">Domicilio</label>
 								<input

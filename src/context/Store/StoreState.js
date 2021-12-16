@@ -16,6 +16,7 @@ const StoreState = (props) => {
         stores: [],
         singleStore: {
             _id: "",
+            nombre: "",
             domicilio: "",
             telefono: ""
         },

@@ -14,7 +14,7 @@ export default function Header() {
 							<Link to="/guitarras" className="text-base font-medium text-white hover:text-indigo-50">
 								Guitarras
 							</Link>
-							<Link to="/tiendas" className="text-base font-medium text-white hover:text-indigo-50">
+							<Link to="/stores" className="text-base font-medium text-white hover:text-indigo-50">
 								Tiendas
 							</Link>
 							<Link to="/sobre-nosotros" className="text-base font-medium text-white hover:text-indigo-50">

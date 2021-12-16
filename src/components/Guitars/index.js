@@ -1,6 +1,5 @@
 import React, { useEffect, useContext } from 'react'
 import GuitarContext from './../../context/Guitar/GuitarContext'
-
 import { Link } from 'react-router-dom'
 
 export default function Guitars() {
