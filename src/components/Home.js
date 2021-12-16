@@ -1,9 +1,25 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import UserContext from '../context/User/UserContext'
+
+
 
 export default function Home() {
-    return (
-        <div>
-            Este es el Home
-        </div>
-    )
+
+	const ctx = useContext(UserContext)
+
+	const {
+		verifyingToken
+	} = ctx
+
+	return (
+		<div>
+			Este es el Home
+			<button onClick={() => {
+				verifyingToken()
+			}}>
+				Verificar sesión
+			</button>
+
+		</div>
+	)
 }

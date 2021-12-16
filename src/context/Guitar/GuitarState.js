@@ -67,6 +67,21 @@ const GuitarState = (props) => {
     console.log(res)
   }
 
+  const updateGuitar = async (form, idGuitar) => {
+
+		const res = await axiosClient.put(`guitars/edit/${idGuitar}`, form)
+
+		console.log(res)
+
+    const updatedGuitar = res.data.data
+
+    dispatch({
+      type: "UPDATE_GUITAR",
+      payload: updatedGuitar
+    })
+
+	}
+
   // 4. Retorno.
   return (
     // Se necesita un proovedor para que de el acceso a los componentes al estado inicial de guitarras.
@@ -78,7 +93,8 @@ const GuitarState = (props) => {
         changeText,
         getGuitars,
         getGuitar,
-        createGuitar
+        createGuitar,
+        updateGuitar
       }}
     >
       {props.children}{" "}

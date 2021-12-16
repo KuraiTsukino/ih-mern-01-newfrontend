@@ -3,13 +3,17 @@
 // 1. Importaciones
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+
 import Layout from "./components/Layout";
 import Home from "./components/Home";
 import Register from "./components/Auth/Register";
 import Login from "./components/Auth/Login";
+
 import Guitars from "./components/Guitars";
 import Single from "./components/Guitars/Single";
 import CreateGuitar from "./components/Guitars/Create";
+import EditGuitar from "./components/Guitars/Single/Edit";
+
 import Stores from "./components/Stores";
 import SingleStore from "./components/Stores/Single";
 import CreateStore from "./components/Stores/Create";
@@ -37,6 +41,7 @@ const Router = () => {
                   <Route path="guitarras" element={<Guitars />} />
                   <Route path="guitarras/crear" element={<CreateGuitar />} />
                   <Route path="guitarras/:id" element={<Single />} />
+                  <Route path="guitarras/:id/editar" element={<EditGuitar />} />
                   <Route path="stores" element={<Stores />} />
                   <Route path="stores/crear" element={<CreateStore />} />
                   <Route path="stores/:id" element={<SingleStore />} />

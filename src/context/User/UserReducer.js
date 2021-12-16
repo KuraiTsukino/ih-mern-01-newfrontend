@@ -12,6 +12,13 @@ const reducer = (globalState, action) => {
 				authStatus: true
 			}
 
+        case "GET_DATA_USER":
+            return {
+                ...globalState,
+                authStatus: true,
+                currentUser: action.payload
+            }
+
 		default: 
 			return globalState
 
