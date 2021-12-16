@@ -6,23 +6,17 @@ export default function Edit() {
 
 	// 1. ESTADO GLOBAL
 	const params = useParams()
-
 	const idGuitar = params.id
 
 	const ctx = useContext(GuitarContext)
 
 	const {
+		singleGuitar,
 		getGuitar,
 		updateGuitar
 	} = ctx
 
-	const {
-		nombre,
-		precio,
-		color,
-		imagen,
-		descripcion
-	} = ctx.singleGuitar
+	
 
 	// 2. ESTADO LOCAL
 	const [guitarData, setGuitarData] = useState({
@@ -35,31 +29,32 @@ export default function Edit() {
 
 	// 3. FUNCIONES
 
+	// USEEFFECT PARA ACTUALIZAR DATOS EN EL ESTADO GLOBAL
 	useEffect(() => {
-		// a. FUNCIÓN DE ACTUALIZACIÓN
-		const updateLocalState = async () => {
-			console.log(idGuitar)
-			// 1. DESCARGAR LOS DATOS DE LA GUITARRA DE LA PÁGINA
-			await getGuitar(idGuitar)
-			
-			// 2. CAMBIAR EL ESTADO CON ESTOS NUEVOS CAMBIOS DEL GLOBAL AL LOCAL
 
-			setGuitarData({
-				nombre,
-				precio,
-				color,
-				imagen,
-				descripcion
-			})
-
-			// 3. RETURN Y CERRAMOS FUNCIÓN ASÍNCRONA
-			return
-
-		}
-
-		updateLocalState()
+			getGuitar(idGuitar)
 
 	}, [])
+
+	// USEEFFECT PARA ACTUALIZAR LOS DATOS DEL ESTADO GLOBAL AL ESTADO LOCAL
+	useEffect(() => {
+
+		const {
+			nombre,
+			precio,
+			color,
+			imagen,
+			descripcion
+		} = ctx.singleGuitar
+
+		setGuitarData({
+			nombre: nombre,
+			precio: precio,
+			color: color,
+			imagen: imagen,
+			descripcion: descripcion
+		})
+	}, [singleGuitar])
 
 	const handleChange = (e) => {
 		e.preventDefault()

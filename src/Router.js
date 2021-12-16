@@ -17,6 +17,7 @@ import EditGuitar from "./components/Guitars/Single/Edit";
 import Stores from "./components/Stores";
 import SingleStore from "./components/Stores/Single";
 import CreateStore from "./components/Stores/Create";
+import EditStore from "./components/Stores/Single/Edit";
 
 import GuitarState from "./context/Guitar/GuitarState";
 import StoreState from "./context/Store/StoreState";
@@ -45,6 +46,7 @@ const Router = () => {
                   <Route path="stores" element={<Stores />} />
                   <Route path="stores/crear" element={<CreateStore />} />
                   <Route path="stores/:id" element={<SingleStore />} />
+                  <Route path="stores/:id/editar" element={<EditStore />} />
                 </Route>
               </Routes>
             </BrowserRouter>

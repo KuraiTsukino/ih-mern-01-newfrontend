@@ -65,6 +65,21 @@ const StoreState = (props) => {
         console.log(res);
     }
 
+    const updateStore = async (form, idStore) => {
+
+        const res = await axiosClient.put(`stores/edit/${idStore}`, form)
+
+        console.log(res)
+
+        const updatedStore = res.data.data
+
+        dispatch({
+            type: "UPDATE_GUITAR",
+            payload: updatedStore
+        })
+
+    }
+ 
     // 4. Retorno.
     return (
         // Se necesita un proovedor para que de el acceso a los componentes al estado inicial de guitarras.
@@ -76,7 +91,8 @@ const StoreState = (props) => {
                 changeText,
                 getStores,
                 getStore,
-                createStore
+                createStore,
+                updateStore
             }}
         >
             {props.children}
