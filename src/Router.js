@@ -23,6 +23,10 @@ import GuitarState from "./context/Guitar/GuitarState";
 import StoreState from "./context/Store/StoreState";
 import UserState from "./context/User/UserState";
 
+import Auth from "./routes/Auth"
+import Private from "./routes/Private"
+import Profile from "./components/User/Profile";
+
 // 2. Función
 const Router = () => {
   return (
@@ -35,10 +39,12 @@ const Router = () => {
                 <Route path="/" element={<Layout />}>
                   {/* localhost:3000/ */}
                   <Route index element={<Home />} />
+
+                  {/* Rutas de autenticación. Evitan que un usuario loggeado pueda entrar a Register y a Login*/}
                   {/* localhost:3000/registro */}
-                  <Route path="registro" element={<Register />} />
+                  <Route path="registro" element={<Auth component={Register} />} />
                   {/* localhost:3000/iniciar-sesion */}
-                  <Route path="iniciar-sesion" element={<Login />} />
+                  <Route path="iniciar-sesion" element={<Auth component={Login} />} />
                   <Route path="guitarras" element={<Guitars />} />
                   <Route path="guitarras/crear" element={<CreateGuitar />} />
                   <Route path="guitarras/:id" element={<Single />} />
@@ -47,6 +53,7 @@ const Router = () => {
                   <Route path="stores/crear" element={<CreateStore />} />
                   <Route path="stores/:id" element={<SingleStore />} />
                   <Route path="stores/:id/editar" element={<EditStore />} />
+                  <Route path="profile" element={<Private component={Profile} />} />
                 </Route>
               </Routes>
             </BrowserRouter>
